@@ -5,6 +5,10 @@
 """
 
 def pascal_triangle(n):
+    """
+        Function that make the Pascal Traingle with 2D list
+    """
+
     if n <= 0:
         return []
 
