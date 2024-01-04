@@ -4,6 +4,7 @@
     Function that make the Pascal Traingle with 2D list
 """
 
+
 def pascal_triangle(n):
     """
         Function that make the Pascal Traingle with 2D list
