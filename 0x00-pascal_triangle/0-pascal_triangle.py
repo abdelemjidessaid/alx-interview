@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+    Function that make the Pascal Traingle with 2D list
+"""
+
 def pascal_triangle(n):
     if n <= 0:
         return []
