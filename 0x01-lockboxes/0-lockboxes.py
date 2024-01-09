@@ -15,10 +15,10 @@ def canUnlockAll(boxes):
     unlocked_boxes = [False] * num_boxes
     unlocked_boxes[0] = True
     stack = [0]
-    
+
     while stack:
         curr_box = stack.pop()
-        
+
         # Iterate through the keys in the current box
         for key in boxes[curr_box]:
             if key < num_boxes and not unlocked_boxes[key]:
