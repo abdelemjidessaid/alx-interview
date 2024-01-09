@@ -10,6 +10,10 @@ def canUnlockAll(boxes):
         Function that check a 2D Array if all arrays that holds can
         be visited using their contained indexes.
     """
+
+    if boxes is None or len(boxes) == 0:
+        return False
+
     visited = [0]
     i = 0
     # visite all boxes mentioned
