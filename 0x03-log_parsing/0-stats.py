@@ -60,4 +60,6 @@ try:
             printResult()
             count = 0
 except KeyboardInterrupt:
+    pass
+finally:
     printResult()
