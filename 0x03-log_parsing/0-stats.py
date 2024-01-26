@@ -63,8 +63,8 @@ try:
             if status in codes:
                 codes[status] += 1
             file_size += convertInt(size)
-        # increase the count var every iteration
-        count += 1
+            # increase the count var every iteration
+            count += 1
         # if count is equal to 10 print the result of summation
         if count == 10:
             printResult()
