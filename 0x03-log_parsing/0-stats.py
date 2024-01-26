@@ -62,7 +62,7 @@ try:
             status = result[0][3]
             size = result[0][4]
             # increment the number of status code and file size
-            if codes.get(status) is not None:
+            if status in codes:
                 codes[status] += 1
             file_size += convertInt(size)
         # increase the count var every iteration
@@ -71,7 +71,7 @@ try:
         if count == 10:
             printResult()
             count = 0
-except KeyboardInterrupt:
-    pass
-finally:
     printResult()
+except KeyboardInterrupt:
+    printResult()
+    raise
