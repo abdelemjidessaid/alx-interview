@@ -26,14 +26,14 @@ def printResult() -> None:
         10 lines or after keyboard interruption
     """
     # print the File size
-    print(f'File size: {file_size}')
+    print('File size: {:d}'.format(file_size))
     # sort status codes
     sorted_keys = sorted(codes.keys())
     # print all keys and values of status codes except that has 0 in its value
     for key in sorted_keys:
         value = codes[key]
         if value:
-            print(f'{key}: {value}')
+            print('{}: {:d}'.format(key, value))
 
 
 def convertInt(num: str) -> int:
@@ -53,7 +53,7 @@ try:
         pattern = (
             r'(\d+\.\d+\.\d+\.\d+)'
             r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])'
-            r' (\".+") (\d+) (\d+)')
+            r' (\"GET \/projects\/260 HTTP\/1.1\") (\d+) (\d+)')
         # result of the RegEx
         result = re.findall(pattern, line)
         # if RegEx result not None extract the Status code and File size
