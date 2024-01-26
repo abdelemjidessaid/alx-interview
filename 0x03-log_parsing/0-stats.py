@@ -20,7 +20,7 @@ file_size = 0
 count = 0
 
 
-def printResult():
+def printResult() -> None:
     """
         Function that prints the result of calculation after
         10 lines or after keyboard interruption
@@ -34,6 +34,17 @@ def printResult():
         value = codes[key]
         if value:
             print(f'{key}: {value}')
+
+
+def convertInt(num: str) -> int:
+    """
+        Function that converts a string to integer
+    """
+    try:
+        integer = int(num)
+        return integer
+    except TypeError:
+        return 0
 
 
 try:
@@ -53,7 +64,7 @@ try:
             # increment the number of status code and file size
             if codes.get(status) is not None:
                 codes[status] += 1
-            file_size += int(size)
+            file_size += convertInt(size)
         # increase the count var every iteration
         count += 1
         # if count is equal to 10 print the result of summation
