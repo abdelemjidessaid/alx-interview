@@ -66,10 +66,9 @@ try:
                 codes[status] += 1
             file_size += convertInt(size)
         # if count is equal to 10 print the result of summation
-        if count == 10:
+        if count % 10 == 0:
             printResult()
-            count = 0
-    printResult()
+
 except KeyboardInterrupt:
     printResult()
     raise
