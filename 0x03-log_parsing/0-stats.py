@@ -40,8 +40,8 @@ try:
     for line in sys.stdin:
         # RegEx pattern to verify the input line instruction
         pattern = (
-            r'(\d+\.\d+\.\d+\.\d+)' +
-            r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])' +
+            r'(\d+\.\d+\.\d+\.\d+)'
+            r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])'
             r' (\"GET \/projects\/260 HTTP\/1.1\") (\d+) (\d+)')
         # result of the RegEx
         result = re.findall(pattern, line)
@@ -51,7 +51,8 @@ try:
             status = result[0][3]
             size = result[0][4]
             # increment the number of status code and file size
-            codes[status] += 1
+            if codes.get(status) is not None:
+                codes[status] += 1
             file_size += int(size)
         # increase the count var every iteration
         count += 1
