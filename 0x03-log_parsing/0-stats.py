@@ -69,6 +69,7 @@ try:
         if count == 10:
             printResult()
             count = 0
+    printResult()
 except KeyboardInterrupt:
     printResult()
     raise
