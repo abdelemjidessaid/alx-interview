@@ -6,6 +6,11 @@ import sys
 import re
 
 
+# RegEx pattern to verify the input line instruction
+pattern = (
+    r'(\d+\.\d+\.\d+\.\d+)'
+    r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])'
+    r' (\"GET \/projects\/260 HTTP\/1.1\") (\d+) (\d+)')
 # dictionary Keys are sorted
 codes = {
     '200': 0,
@@ -47,11 +52,8 @@ def convertInt(num: str) -> int:
 
 try:
     for line in sys.stdin:
-        # RegEx pattern to verify the input line instruction
-        pattern = (
-            r'(\d+\.\d+\.\d+\.\d+)'
-            r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])'
-            r' (\"GET \/projects\/260 HTTP\/1.1\") (\d+) (\d+)')
+        # increase the count var every iteration
+        count += 1
         # result of the RegEx
         result = re.findall(pattern, line)
         # if RegEx result not None extract the Status code and File size
@@ -63,8 +65,6 @@ try:
             if status in codes:
                 codes[status] += 1
             file_size += convertInt(size)
-            # increase the count var every iteration
-            count += 1
         # if count is equal to 10 print the result of summation
         if count == 10:
             printResult()
