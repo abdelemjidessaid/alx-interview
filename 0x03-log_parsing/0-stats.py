@@ -53,7 +53,7 @@ try:
         pattern = (
             r'(\d+\.\d+\.\d+\.\d+)'
             r' - (\[\d+-\d+-\d+ \d+\:\d+\:\d+\.\d+\])'
-            r' (\"GET \/projects\/260 HTTP\/1.1\") (\d+) (\d+)')
+            r' (\".+") (\d+) (\d+)')
         # result of the RegEx
         result = re.findall(pattern, line)
         # if RegEx result not None extract the Status code and File size
