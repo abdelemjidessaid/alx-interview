@@ -6,6 +6,7 @@ import sys
 import re
 
 
+# dictionary Keys are sorted
 codes = {
     '200': 0,
     '301': 0,
@@ -16,8 +17,7 @@ codes = {
     '405': 0,
     '500': 0
 }
-file_size = 0
-count = 0
+file_size, count = 0, 0
 
 
 def printResult() -> None:
@@ -27,10 +27,8 @@ def printResult() -> None:
     """
     # print the File size
     print('File size: {:d}'.format(file_size))
-    # sort status codes
-    sorted_keys = sorted(codes.keys())
     # print all keys and values of status codes except that has 0 in its value
-    for key in sorted_keys:
+    for key in codes.keys():
         value = codes[key]
         if value:
             print('{}: {:d}'.format(key, value))
