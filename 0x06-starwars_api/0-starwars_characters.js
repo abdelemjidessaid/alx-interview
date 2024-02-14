@@ -3,7 +3,7 @@ const request = require('request');
 
 const args = process.argv;
 
-async function fetchCharacter(url) {
+async function fetchCharacter (url) {
   /**
    * function that return new promise that fetch the character name
    * url: the character url
@@ -22,7 +22,7 @@ async function fetchCharacter(url) {
   });
 }
 
-function main() {
+function main () {
   /**
    * main function - entery point of program
    * fetches the film by the given id
