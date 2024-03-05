@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ Module of island perimeter calculation """
 
 
@@ -25,6 +25,6 @@ def island_perimeter(grid):
                     perimeter -= 2
                 if j > 0 and grid[i][j - 1] == 1:
                     # Reduce 2 sides if neighbor exists on the left
-                    perimeter -= 2 
+                    perimeter -= 2
 
     return perimeter
