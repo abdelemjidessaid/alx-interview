@@ -1,51 +1,32 @@
 #!/usr/bin/python3
-""" Module of Prime Game Solution """
+"""Prime game winner determination"""
 
 
 def isWinner(x, nums):
-    """Function that solves the Prime Game"""
-
-    def is_prime(num):
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-
-    def get_next_prime(start):
-        """Function that returns the next prime"""
-        num = start + 1
-        while not is_prime(num):
-            num += 1
-        return num
-
-    def determine_game_winner(n):
-        """Function that determins the gime winner"""
-        if n == 1:
-            return "Ben"  # Ben wins when n is 1
-        prime = 2
-        maria_turn = True
-        while prime <= n:
-            if n % prime != 0:
-                return "Maria" if maria_turn else "Ben"
-            prime = get_next_prime(prime)
-            maria_turn = not maria_turn
-        return "Maria" if maria_turn else "Ben"
-
-    maria_wins = 0
-    ben_wins = 0
-
-    for n in nums:
-        winner = determine_game_winner(n)
-        if winner == "Maria":
-            maria_wins += 1
-        elif winner == "Ben":
-            ben_wins += 1
-
-    if maria_wins > ben_wins:
-        return "Maria"
-    elif ben_wins > maria_wins:
-        return "Ben"
-    else:
+    """Prime game winner determination"""
+    if x < 1 or not nums:
         return None
+
+    m_wins = 0
+    b_wins = 0
+
+    # generate a list of prime number based on the max numbers in num
+    n = max(nums)
+    primes = [True] * (n + 1)
+    primes[0] = primes[1] = False
+
+    for x in range(2, int(n**0.5) + 1):
+        if primes[x]:
+            for y in range(x**2, n + 1, x):
+                primes[y] = False
+
+    # count the no of pm less than n i nums
+    for n in nums:
+        count = sum(primes[2:n + 1])
+        b_wins += count % 2 == 0
+        m_wins += count % 2 == 1
+
+    if m_wins == b_wins:
+        return None
+
+    return "Maria" if m_wins > b_wins else "Ben"
